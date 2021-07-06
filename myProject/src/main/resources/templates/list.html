@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>显示上传信息</title>
+</head>
+<body>
+<h3 align="center">上传信息</h3>
+<div th:if="${deleteStatus}" style="color: red" th:text="${deleteStatus}">删除成功！！</div>
+<table width="850px" height="300px" border="1" cellpadding="0"
+       cellspacing="0"  align="center">
+    <tr >
+        <th>文件名称</th>
+        <th>类型</th>
+        <th>上传时间</th>
+        <th>上传ip</th>
+        <th>下载</th>
+        <th>删除</th>
+    </tr>
+    <tr align="center" th:each="fileinfo,index : ${fileinfo}">
+        <td th:text="${fileinfo.filename}"></td>
+        <td th:text=${fileinfo.filetype}></td>
+        <td th:text="${fileinfo.uploadtime}"></td>
+        <td th:text="${fileinfo.uploadip}"></td>
+        <td><a th:href="@{/download(filename=${fileinfo.filename})}">下载文件</a></td>
+        <td><a th:href="@{/deleteFile(filename=${fileinfo.filename})}">删除文件</a></td>
+    </tr>
+</table>
+</body>
+</html>

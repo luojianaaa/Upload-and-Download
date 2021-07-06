@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>显示下载信息</title>
+</head>
+<body>
+<h3 align="center">下载信息</h3>
+<table width="750px" height="300px" border="1" cellpadding="0"
+       cellspacing="0"  align="center">
+    <tr>
+        <th>文件名称</th>
+        <th>下载时间</th>
+        <th>下载ip</th>
+    </tr>
+    <tr align="center" th:each="downlist,index : ${filedownload}">
+        <td th:text="${downlist.filename}"></td>
+        <td th:text="${downlist.downtime}"></td>
+        <td th:text="${downlist.filedownIp}"></td>
+    </tr>
+</table>
+</body>
+</html>

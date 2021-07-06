@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>文件下载</title>
+</head>
+<body>
+<h2 align="center">文件下载列表</h2>
+<table width="750px" height="300px" border="1" cellpadding="0"
+       cellspacing="0"  align="center">
+    <tr >
+        <th>序号</th>
+        <th>文件名</th>
+        <th>大小</th>
+        <th>下载</th>
+    </tr>
+    <tr align="center" th:each="fileinfo,index : ${fileinfo}">
+        <td th:text="${index.count}"></td>
+        <td th:text="${fileinfo.filename}"></td>
+        <td th:text="${fileinfo.filesize}"></td>
+        <td><a th:href="@{/download(filename=${fileinfo.filename})}">下载文件</a></td>
+    </tr>
+
+
+</body>
+</html>
